@@ -145,7 +145,7 @@ function renderApp() {
 
               <div class="field">
                 <label class="field-label" for="frete">
-                  <span class="field-icon">${icon("[]")}</span>
+                  <span class="field-icon">${icon("⛟")}</span>
                   Frete total (R$)
                 </label>
                 <input id="frete" class="input" type="tel" inputmode="decimal" placeholder="0,00" value="${state.frete}" data-field="frete" data-format="money" />

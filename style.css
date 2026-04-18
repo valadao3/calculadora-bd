@@ -33,12 +33,12 @@ button,input{
 .app-frame{
   max-width:448px;
   margin:0 auto;
-  min-height:100svh;
+  height:100svh;
   position:relative;
 }
 
 .screen{
-  padding:16px;
+  padding:12px;
   min-height:100svh;
   transition:transform .28s ease, opacity .28s ease, visibility .28s ease;
 }
@@ -69,18 +69,18 @@ button,input{
 .main-screen{
   display:flex;
   flex-direction:column;
-  gap:16px;
+  gap:10px;
 }
 
 .title-block{
-  padding-top:12px;
-  padding-bottom:4px;
+  padding-top:4px;
+  padding-bottom:2px;
   text-align:center;
 }
 
 .title-block h1{
   margin:0;
-  font-size:2rem;
+  font-size:clamp(1.4rem, 4vw, 1.85rem);
   line-height:1.1;
   letter-spacing:-0.03em;
   font-weight:800;
@@ -99,27 +99,27 @@ button,input{
 }
 
 .panel-header{
-  padding:20px 20px 8px 20px;
+  padding:14px 14px 4px 14px;
 }
 
 .panel-header h2{
   margin:0;
-  font-size:1.125rem;
+  font-size:1rem;
   font-weight:700;
 }
 
 .main-content{
-  padding:0 20px 20px 20px;
+  padding:0 14px 14px 14px;
   display:flex;
   flex-direction:column;
-  gap:16px;
+  gap:10px;
   flex:1;
 }
 
 .result-card{
   background:var(--panel-soft);
   border-radius:24px;
-  padding:16px;
+  padding:12px 14px;
 }
 
 .result-label{
@@ -130,8 +130,8 @@ button,input{
 }
 
 .result-value{
-  margin-top:6px;
-  font-size:1.9rem;
+  margin-top:4px;
+  font-size:clamp(1.45rem, 4.6vw, 1.8rem);
   line-height:1.1;
   font-weight:800;
   word-break:break-word;
@@ -140,7 +140,7 @@ button,input{
 .field{
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:6px;
 }
 
 .field-label{
@@ -173,10 +173,10 @@ button,input{
 
 .input{
   width:100%;
-  height:44px;
+  height:40px;
   border:1px solid var(--line);
-  border-radius:18px;
-  padding:0 14px;
+  border-radius:16px;
+  padding:0 12px;
   background:#fff;
   color:var(--text);
   outline:none;
@@ -186,7 +186,7 @@ button,input{
 .input.compact{
   height:40px;
   border-radius:16px;
-  font-size:.95rem;
+  font-size:.92rem;
 }
 
 .input:focus{
@@ -196,8 +196,8 @@ button,input{
 
 .tax-grid{
   display:grid;
-  grid-template-columns:1fr;
-  gap:12px;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:10px;
 }
 
 .toggle-wrap{
@@ -207,9 +207,9 @@ button,input{
 
 .btn{
   width:100%;
-  height:44px;
+  height:40px;
   border:none;
-  border-radius:18px;
+  border-radius:16px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -251,9 +251,9 @@ button,input{
 .footer-actions{
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:8px;
   margin-top:auto;
-  padding-top:4px;
+  padding-top:2px;
 }
 
 .arrow-right{
@@ -274,21 +274,21 @@ button,input{
   display:flex;
   align-items:center;
   gap:12px;
-  padding-top:12px;
-  padding-bottom:12px;
+  padding-top:6px;
+  padding-bottom:8px;
 }
 
 .details-topbar h2{
   margin:0;
-  font-size:1.35rem;
+  font-size:1.1rem;
   font-weight:800;
   line-height:1.1;
   letter-spacing:-0.03em;
 }
 
 .details-topbar p{
-  margin:4px 0 0;
-  font-size:.9rem;
+  margin:2px 0 0;
+  font-size:.8rem;
   color:var(--muted);
 }
 
@@ -299,61 +299,76 @@ button,input{
 }
 
 .details-card{
-  padding:20px;
-  margin-bottom:16px;
+  padding:12px;
+  margin-bottom:8px;
 }
 
 .details-grid{
   display:grid;
-  grid-template-columns:1fr;
-  gap:12px;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:8px;
 }
 
 .detail-item{
   border:1px solid var(--line);
-  border-radius:22px;
-  padding:14px;
+  border-radius:16px;
+  padding:10px;
   background:#fff;
 }
 
 .detail-label{
   color:var(--muted);
-  font-size:.76rem;
+  font-size:.7rem;
 }
 
 .detail-value{
-  margin-top:6px;
+  margin-top:4px;
   font-weight:700;
-  font-size:1rem;
+  font-size:.9rem;
 }
 
 .formula-card{
-  margin-top:12px;
+  margin-top:8px;
   border:1px solid var(--line);
-  border-radius:22px;
-  padding:14px;
+  border-radius:16px;
+  padding:10px;
   color:var(--muted);
-  line-height:1.5;
-  font-size:.82rem;
+  line-height:1.35;
+  font-size:.74rem;
   background:#fff;
 }
 
 @media (min-width:420px){
-  .tax-grid,
   .details-grid{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (max-height:760px){
-  .title-block h1{font-size:1.8rem}
-  .result-value{font-size:1.65rem}
-  .panel-header{padding:18px 18px 6px 18px}
-  .main-content{padding:0 18px 18px 18px;gap:14px}
+  .screen{padding:10px}
+  .main-screen{gap:8px}
+  .title-block h1{font-size:1.35rem}
+  .panel-header{padding:12px 12px 4px}
+  .main-content{padding:0 12px 12px;gap:8px}
+  .result-card{padding:10px 12px}
+  .result-value{font-size:1.35rem}
+  .field-label{font-size:.82rem}
+  .field-label.compact{font-size:.72rem}
+  .input,.btn,.input.compact{height:36px}
+  .tax-grid{gap:8px}
+  .details-topbar h2{font-size:1rem}
+  .details-card{padding:10px}
+  .details-grid{gap:6px}
+  .detail-item{padding:8px}
+  .detail-label{font-size:.66rem}
+  .detail-value{font-size:.82rem}
+  .formula-card{font-size:.68rem;padding:8px}
 }
 
 @media (max-width:360px){
-  .screen{padding:12px}
-  .title-block h1{font-size:1.7rem}
-  .main-content{padding:0 16px 16px 16px}
+  .screen{padding:8px}
+  .main-content{padding:0 10px 10px}
+  .tax-grid,
+  .details-grid{gap:6px}
+  .detail-value{font-size:.8rem}
 }
