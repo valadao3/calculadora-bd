@@ -190,7 +190,7 @@ function renderApp() {
 
               <div class="footer-actions">
                 <button type="button" class="btn outline" data-action="limpar">
-                  ${icon("R")}
+                  ${icon("♺")}
                   Limpar campos
                 </button>
                 <button type="button" class="btn primary" data-action="detalhes">
