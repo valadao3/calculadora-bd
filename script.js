@@ -39,7 +39,7 @@ function icon(symbol) {
 }
 
 const root = document.querySelector("#root");
-const appTitle = root.dataset.appTitle || "Calculadora de Preco";
+const appTitle = root.dataset.appTitle || "Calculadora de Preço";
 const startZero = root.dataset.startZero === "true";
 const sistemaTaxaLabel = root.dataset.systemLabel || "Taxa de sistema (%)";
 const sistemaDetalheLabel = root.dataset.systemDetailLabel || "Sistema por unidade";
@@ -103,12 +103,12 @@ function getDetalhes(resultado) {
     ["Custo produtos total", formatBR(resultado.custoProdutosTotal)],
     ["Custo total", formatBR(resultado.custoTotal)],
     ["Frete por unidade", formatBR(resultado.freteUnitario)],
-    ["Custo unitario", formatBR(resultado.custoUnitario)],
+    ["Custo unitário", formatBR(resultado.custoUnitario)],
     ["ST total", formatBR(resultado.stTotal)],
     ["ST por unidade", formatBR(resultado.stUnitario)],
     ["Nota fiscal por unidade", formatBR(resultado.valorNF)],
     [sistemaDetalheLabel, formatBR(resultado.valorSistema)],
-    ["Lucro liquido por unidade", formatBR(resultado.valorLucro)],
+    ["Lucro líquido por unidade", formatBR(resultado.valorLucro)],
     ["Venda total", formatBR(resultado.precoVendaTotal)],
     ["Venda por unidade", formatBR(resultado.precoVenda)],
     ["Markup final", resultado.markup.toFixed(2) + "x"],
@@ -135,7 +135,7 @@ function renderApp() {
 
             <div class="main-content">
               <div class="result-card">
-                <div class="result-label">Preco final sugerido</div>
+                <div class="result-label">Preço final sugerido</div>
                 <div class="result-value">${formatBR(resultado.precoVendaTotal)}</div>
               </div>
 
@@ -171,7 +171,7 @@ function renderApp() {
                   </label>
                   <div class="toggle-wrap">
                     <button type="button" class="btn ${state.stAtivo ? "toggle-active-yes" : "toggle-inactive"}" data-action="st-yes">Sim</button>
-                    <button type="button" class="btn ${!state.stAtivo ? "toggle-active-no" : "toggle-inactive"}" data-action="st-no">Nao</button>
+                    <button type="button" class="btn ${!state.stAtivo ? "toggle-active-no" : "toggle-inactive"}" data-action="st-no">Não</button>
                   </div>
                 </div>
 
@@ -194,7 +194,7 @@ function renderApp() {
                 <div class="field">
                   <label class="field-label compact" for="margemLucro">
                     <span class="field-icon">${icon("%")}</span>
-                    Margem liquida (%)
+                    Margem líquida (%)
                   </label>
                   <input id="margemLucro" class="input compact" type="tel" inputmode="decimal" placeholder="0,00" value="${state.margemLucro}" data-field="margemLucro" data-format="money" />
                 </div>
@@ -220,8 +220,8 @@ function renderApp() {
               <span aria-hidden="true">&lt;</span>
             </button>
             <div>
-              <h2>Informacoes detalhadas</h2>
-              <p>Resumo completo do calculo</p>
+              <h2>Informações detalhadas</h2>
+              <p>Resumo completo do cálculo</p>
             </div>
           </div>
 
@@ -238,7 +238,7 @@ function renderApp() {
             </div>
 
             <div class="formula-card">
-              Formula usada: custo do produto x quantidade. O frete total e rateado por unidade. O ST e aplicado sobre o custo total dos produtos quando ativado. A venda unitaria e calculada para sobrar a margem liquida definida, ja considerando taxa de nota e ${sistemaFormulaLabel} sobre o valor final de venda.
+              Fórmula usada: custo do produto x quantidade. O frete total é rateado por unidade. O ST é aplicado sobre o custo total dos produtos quando ativado. A venda unitária é calculada para sobrar a margem líquida definida, já considerando taxa de nota e ${sistemaFormulaLabel} sobre o valor final de venda.
             </div>
           </div>
         </section>
