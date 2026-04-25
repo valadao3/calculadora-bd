@@ -38,16 +38,27 @@ function icon(symbol) {
   return '<span class="icon-glyph" aria-hidden="true">' + symbol + "</span>";
 }
 
-const state = {
-  custo: "0,00",
-  quantidade: "1",
-  frete: "0,00",
-  stAtivo: true,
-  notaTaxa: "10,00",
-  sistemaTaxa: "6,00",
-  margemLucro: "15,00",
-  mostrarDetalhes: false,
-};
+const root = document.querySelector("#root");
+const appTitle = root.dataset.appTitle || "Calculadora de Preco";
+const startZero = root.dataset.startZero === "true";
+const sistemaTaxaLabel = root.dataset.systemLabel || "Taxa de sistema (%)";
+const sistemaDetalheLabel = root.dataset.systemDetailLabel || "Sistema por unidade";
+const sistemaFormulaLabel = root.dataset.systemFormulaLabel || "taxa de sistema";
+
+function getInitialState() {
+  return {
+    custo: "0,00",
+    quantidade: startZero ? "0" : "1",
+    frete: "0,00",
+    stAtivo: startZero ? false : true,
+    notaTaxa: startZero ? "0,00" : "10,00",
+    sistemaTaxa: startZero ? "0,00" : "6,00",
+    margemLucro: startZero ? "0,00" : "15,00",
+    mostrarDetalhes: false,
+  };
+}
+
+const state = getInitialState();
 
 function calcularResultado() {
   const custoNum = parseBR(state.custo);
@@ -96,7 +107,7 @@ function getDetalhes(resultado) {
     ["ST total", formatBR(resultado.stTotal)],
     ["ST por unidade", formatBR(resultado.stUnitario)],
     ["Nota fiscal por unidade", formatBR(resultado.valorNF)],
-    ["Sistema por unidade", formatBR(resultado.valorSistema)],
+    [sistemaDetalheLabel, formatBR(resultado.valorSistema)],
     ["Lucro liquido por unidade", formatBR(resultado.valorLucro)],
     ["Venda total", formatBR(resultado.precoVendaTotal)],
     ["Venda por unidade", formatBR(resultado.precoVenda)],
@@ -113,7 +124,8 @@ function renderApp() {
       <div class="app-frame">
         <section class="screen main-screen ${state.mostrarDetalhes ? "screen-hidden screen-left" : "screen-active"}">
           <div class="title-block">
-            <h1>Calculadora de Preco</h1>
+            <a class="back-to-hub" href="./index.html">&lt; Hub de Apps</a>
+            <h1>${appTitle}</h1>
           </div>
 
           <div class="panel main-card">
@@ -174,7 +186,7 @@ function renderApp() {
                 <div class="field">
                   <label class="field-label compact" for="sistemaTaxa">
                     <span class="field-icon">${icon("%")}</span>
-                    Taxa de sistema (%)
+                    ${sistemaTaxaLabel}
                   </label>
                   <input id="sistemaTaxa" class="input compact" type="tel" inputmode="decimal" placeholder="0,00" value="${state.sistemaTaxa}" data-field="sistemaTaxa" data-format="money" />
                 </div>
@@ -226,7 +238,7 @@ function renderApp() {
             </div>
 
             <div class="formula-card">
-              Formula usada: custo do produto x quantidade. O frete total e rateado por unidade. O ST e aplicado sobre o custo total dos produtos quando ativado. A venda unitaria e calculada para sobrar a margem liquida definida, ja considerando taxa de nota e taxa de sistema sobre o valor final de venda.
+              Formula usada: custo do produto x quantidade. O frete total e rateado por unidade. O ST e aplicado sobre o custo total dos produtos quando ativado. A venda unitaria e calculada para sobrar a margem liquida definida, ja considerando taxa de nota e ${sistemaFormulaLabel} sobre o valor final de venda.
             </div>
           </div>
         </section>
@@ -234,8 +246,6 @@ function renderApp() {
     </div>
   `;
 }
-
-const root = document.querySelector("#root");
 
 function atualizarTela(activeField) {
   root.innerHTML = renderApp();
@@ -252,13 +262,7 @@ function atualizarTela(activeField) {
 }
 
 function limparCampos() {
-  state.custo = "0,00";
-  state.quantidade = "1";
-  state.frete = "0,00";
-  state.stAtivo = true;
-  state.notaTaxa = "10,00";
-  state.sistemaTaxa = "6,00";
-  state.margemLucro = "15,00";
+  Object.assign(state, getInitialState());
 }
 
 function bindEvents() {

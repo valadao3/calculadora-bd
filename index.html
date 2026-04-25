@@ -3,12 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Calculadora de Preco</title>
+    <title>Hub de Apps</title>
     <meta name="theme-color" content="#f8fafc" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script src="./script.js"></script>
+    <main class="app-shell hub-shell">
+      <div class="app-frame hub-frame">
+        <section class="screen hub-screen">
+          <div class="title-block hub-title">
+            <h1>Hub de Apps</h1>
+          </div>
+
+          <div class="panel hub-panel">
+            <div class="panel-header">
+              <h2>Modulos</h2>
+            </div>
+
+            <div class="hub-content">
+              <a class="module-card" href="./calculadora.html" aria-label="Abrir Calculadora BD">
+                <span class="module-icon" aria-hidden="true">$</span>
+                <span class="module-copy">
+                  <strong>Calculadora BD</strong>
+                  <span>Calcule preco de venda, taxas, ST, frete e margem liquida.</span>
+                </span>
+                <span class="module-arrow" aria-hidden="true">&gt;</span>
+              </a>
+            </div>
+
+            <div class="panel-header panel-header-spaced">
+              <h2>Em desenvolvimento</h2>
+            </div>
+
+            <div class="hub-content">
+              <div class="module-card module-card-disabled" aria-disabled="true">
+                <span class="module-icon" aria-hidden="true">$</span>
+                <span class="module-copy">
+                  <strong>Calculadora PDV</strong>
+                  <span>Clone da calculadora BD para uso no modulo PDV.</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
   </body>
 </html>
