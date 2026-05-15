@@ -263,6 +263,14 @@ button,input{
   flex:1;
 }
 
+.calculator-content{
+  padding-top:14px;
+}
+
+.manual-content{
+  padding-top:14px;
+}
+
 .result-card{
   background:var(--panel-soft);
   border-radius:24px;
@@ -547,6 +555,8 @@ button,input{
   .title-block h1{font-size:1.35rem}
   .panel-header{padding:12px 12px 4px}
   .main-content{padding:0 12px 12px;gap:8px}
+  .calculator-content{padding-top:12px}
+  .manual-content{padding-top:12px}
   .result-card{padding:10px 12px}
   .result-value{font-size:1.35rem}
   .field-label{font-size:.82rem}
@@ -565,6 +575,8 @@ button,input{
 @media (max-width:360px){
   .screen{--screen-pad:8px}
   .main-content{padding:0 10px 10px}
+  .calculator-content{padding-top:10px}
+  .manual-content{padding-top:10px}
   .tax-grid,
   .details-grid{gap:6px}
   .detail-value{font-size:.8rem}

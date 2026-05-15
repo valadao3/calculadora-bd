@@ -129,11 +129,7 @@ function renderApp() {
           </div>
 
           <div class="panel main-card">
-            <div class="panel-header">
-              <h2>Dados do produto</h2>
-            </div>
-
-            <div class="main-content">
+            <div class="main-content calculator-content">
               <div class="result-card">
                 <div class="result-label">Preço final sugerido</div>
                 <div class="result-value">${formatBR(resultado.precoVendaTotal)}</div>
