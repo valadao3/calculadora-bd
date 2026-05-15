@@ -44,6 +44,7 @@ const startZero = root.dataset.startZero === "true";
 const sistemaTaxaLabel = root.dataset.systemLabel || "Taxa de sistema (%)";
 const sistemaDetalheLabel = root.dataset.systemDetailLabel || "Sistema por unidade";
 const sistemaFormulaLabel = root.dataset.systemFormulaLabel || "taxa de sistema";
+const sistemaTaxaPadrao = root.dataset.systemDefault || "6,00";
 
 function getInitialState() {
   return {
@@ -52,7 +53,7 @@ function getInitialState() {
     frete: "0,00",
     stAtivo: startZero ? false : true,
     notaTaxa: startZero ? "0,00" : "10,00",
-    sistemaTaxa: startZero ? "0,00" : "6,00",
+    sistemaTaxa: startZero ? "0,00" : sistemaTaxaPadrao,
     margemLucro: startZero ? "0,00" : "15,00",
     mostrarDetalhes: false,
   };
